@@ -41,7 +41,8 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    /* Increased z-index to be on top of the mobile menu */
 }
 
 .logo {
@@ -69,6 +70,14 @@ nav a {
 
 nav a:hover {
     color: #ff9900;
+}
+
+/* Mobile navigation styles */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ffffff;
 }
 
 .cta-button {
@@ -522,4 +531,102 @@ footer {
 
 .footer-links a:hover {
     color: #ff9900;
+}
+
+
+/* --- Responsive Design (Mobile First) --- */
+
+/* Mobile-specific styles for screens up to 768px */
+@media (max-width: 768px) {
+
+    /* Header and Navigation */
+    header {
+        flex-wrap: wrap;
+        padding: 16px 20px;
+    }
+
+    nav {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    nav.active {
+        max-height: 500px;
+        /* Sufficient height to show all links */
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    /* Hero Section */
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+
+    /* Section Headings */
+    h2 {
+        font-size: 28px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* About Section */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Skills and Projects Sections */
+    .skills-section,
+    .projects,
+    .certificates,
+    .experience {
+        padding: 40px 10px;
+    }
+
+    .skill-grid,
+    .project-grid,
+    .certificate-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .skill-card {
+        width: 100%;
+    }
+
+    /* Experience Section */
+    .experience-item {
+        padding: 20px;
+    }
+
+    /* Contact Form */
+    .contact-form-container {
+        padding: 20px;
+    }
+
+    /* Footer */
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
