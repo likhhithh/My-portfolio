@@ -1,0 +1,14 @@
+[
+  {
+    "role": "Web Developer Intern",
+    "company": "Basil Infotech",
+    "dates": "[Start Date] - [End Date]",
+    "descriptions": [
+      "Developed and maintained web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js).",
+      "Collaborated with the development team to design, develop, and implement responsive user interfaces with React.js.",
+      "Gained hands-on experience in building RESTful APIs with Node.js and Express.js for seamless front-end and back-end communication.",
+      "Assisted in database management and schema design using MongoDB.",
+      "Participated in code reviews and contributed to improving code quality and application performance."
+    ]
+  }
+]

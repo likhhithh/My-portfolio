@@ -1,0 +1,42 @@
+[
+  {
+    "name": "MERN Stack",
+    "image": "https://placehold.co/250x150/146eb4/ffffff?text=MERN+Stack"
+  },
+  {
+    "name": "Git & GitHub",
+    "image": "https://placehold.co/250x150/ff9900/ffffff?text=Git+%26+GitHub"
+  },
+  {
+    "name": "MATLAB",
+    "image": "https://placehold.co/250x150/37475a/ffffff?text=MATLAB"
+  },
+  {
+    "name": "LTSpice",
+    "image": "https://placehold.co/250x150/0f5a8c/ffffff?text=LTSpice"
+  },
+  {
+    "name": "Simulink",
+    "image": "https://placehold.co/250x150/146eb4/ffffff?text=Simulink"
+  },
+  {
+    "name": "Windows",
+    "image": "https://placehold.co/250x150/ff9900/ffffff?text=Windows"
+  },
+  {
+    "name": "Ubuntu",
+    "image": "https://placehold.co/250x150/37475a/ffffff?text=Ubuntu"
+  },
+  {
+    "name": "Critical Thinking",
+    "image": "https://placehold.co/250x150/0f5a8c/ffffff?text=Critical+Thinking"
+  },
+  {
+    "name": "Effective Communication",
+    "image": "https://placehold.co/250x150/146eb4/ffffff?text=Effective+Communication"
+  },
+  {
+    "name": "Problem-solving",
+    "image": "https://placehold.co/250x150/ff9900/ffffff?text=Problem-solving"
+  }
+]

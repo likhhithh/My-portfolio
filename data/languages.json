@@ -1,0 +1,26 @@
+[
+  {
+    "name": "C",
+    "image": "https://placehold.co/250x150/1a222c/ffffff?text=C"
+  },
+  {
+    "name": "C++",
+    "image": "https://placehold.co/250x150/1a222c/ffffff?text=C++"
+  },
+  {
+    "name": "Python",
+    "image": "https://placehold.co/250x150/1a222c/ffffff?text=Python"
+  },
+  {
+    "name": "JavaScript (ES6+)",
+    "image": "https://placehold.co/250x150/1a222c/ffffff?text=JavaScript"
+  },
+  {
+    "name": "HTML",
+    "image": "https://placehold.co/250x150/1a222c/ffffff?text=HTML"
+  },
+  {
+    "name": "CSS",
+    "image": "https://placehold.co/250x150/1a222c/ffffff?text=CSS"
+  }
+]

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio - Amazon Prime Inspired</title>
+    <!-- Link to the external CSS file in the 'styles' folder -->
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">My Portfolio</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#programming-languages">Languages</a></li>
+          <li><a href="#other-skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- About Section with Photo -->
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <!-- Use the photo from your assets folder with a fallback -->
+        <img
+          src="assets/photo.jpg"
+          alt="My Photo"
+          class="about-photo"
+          onerror="this.src='https://placehold.co/200x200/cccccc/232f3e?text=My+Photo';"
+        />
+        <p>
+          A strong student having passion towards technology and innovation.
+          Besides, a dedicated software enthusiast: I constantly seek
+          opportunities to explore and integrate software solutions with
+          electrical engineering principles. My academic foundation, coupled
+          with my interest in IT, drives me to tackle complex problems, develop
+          efficient systems, and stay at the forefront of advancements in both
+          fields.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+      <h2>My Experience</h2>
+      <div id="experience-container" class="experience-container">
+        <!-- Experience items will be dynamically inserted here by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Programming Languages Section -->
+    <section id="programming-languages" class="skills-section">
+      <h2>Programming Languages</h2>
+      <div id="programming-languages-container" class="skill-grid">
+        <!-- Programming Language cards will be dynamically inserted here by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Other Skills Section -->
+    <section id="other-skills" class="skills-section other">
+      <h2>Other Skills</h2>
+      <div id="skill-cards-container" class="skill-grid">
+        <!-- Skill cards will be dynamically inserted here by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <h2>My Projects</h2>
+      <div id="projects-container" class="project-grid">
+        <!-- Project cards will be dynamically inserted here by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates">
+      <h2>My Certificates</h2>
+      <div id="certificates-container" class="certificate-grid">
+        <!-- Certificate cards will be dynamically inserted here by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+      <h2>My Resume</h2>
+      <p>Download my resume to learn more about my professional experience.</p>
+      <a href="Resume.pdf" class="cta-button" download>Download Resume</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+      <div class="contact-form-container">
+        <form
+          id="contact-form"
+          action="mailto:malothulikhith@gmail.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="cta-button">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="#contact">Contact Me</a></li>
+          <li>
+            <a href="https://github.com/likhhithh" target="_blank">GitHub</a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/likhithmalothu01/"
+              target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://twitter.com/yourusername" target="_blank"
+              >Twitter</a
+            >
+          </li>
+          <li>
+            <a href="https://instagram.com/yourusername" target="_blank"
+              >Instagram</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <script>
+      // Function to fetch data from a JSON file and render cards
+      async function fetchDataAndRender(url, containerId, renderFunction) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          const container = document.getElementById(containerId);
+          data.forEach((item) => {
+            container.appendChild(renderFunction(item));
+          });
+        } catch (error) {
+          console.error(`Could not fetch data from ${url}:`, error);
+          const container = document.getElementById(containerId);
+          container.innerHTML = `<p style="color: red; text-align: center;">Failed to load content. Please try again later.</p>`;
+        }
+      }
+
+      // Render function for skills cards (Netflix-style)
+      function renderSkillCard(skill) {
+        const skillCard = document.createElement("div");
+        skillCard.className = "skill-card";
+        const image = document.createElement("img");
+        image.src = skill.image;
+        image.alt = skill.name;
+        image.onerror = function () {
+          this.src = `https://placehold.co/250x150/cccccc/232f3e?text=${skill.name.replace(
+            / /g,
+            "+"
+          )}`;
+        };
+        const paragraph = document.createElement("p");
+        paragraph.textContent = skill.name;
+        skillCard.appendChild(image);
+        skillCard.appendChild(paragraph);
+        return skillCard;
+      }
+
+      // Render function for projects cards
+      function renderProjectCard(project) {
+        const projectCard = document.createElement("div");
+        projectCard.className = "project";
+        const title = document.createElement("h3");
+        title.textContent = project.title;
+        const description = document.createElement("p");
+        description.textContent = project.description;
+        const link = document.createElement("a");
+        link.href = project.link;
+        link.className = "project-link";
+        link.textContent = "View Project";
+        projectCard.appendChild(title);
+        projectCard.appendChild(description);
+        projectCard.appendChild(link);
+        return projectCard;
+      }
+
+      // Render function for certificates cards
+      function renderCertificateCard(certificate) {
+        const certificateCard = document.createElement("div");
+        certificateCard.className = "certificate";
+        const image = document.createElement("img");
+        image.src = certificate.image;
+        image.alt = certificate.title;
+        image.onerror = function () {
+          this.src = `https://placehold.co/300x200/cccccc/232f3e?text=${certificate.title.replace(
+            / /g,
+            "+"
+          )}`;
+        };
+        const paragraph = document.createElement("p");
+        paragraph.textContent = certificate.title;
+        certificateCard.appendChild(image);
+        certificateCard.appendChild(paragraph);
+        return certificateCard;
+      }
+
+      // Render function for the experience section
+      function renderExperienceItem(experience) {
+        const experienceItem = document.createElement("div");
+        experienceItem.className = "experience-item";
+
+        const role = document.createElement("h3");
+        role.textContent = experience.role;
+
+        const company = document.createElement("p");
+        company.className = "experience-company";
+        company.textContent = experience.company;
+
+        const date = document.createElement("p");
+        date.className = "experience-date";
+        date.textContent = experience.dates;
+
+        const descriptionList = document.createElement("ul");
+        experience.descriptions.forEach((desc) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = desc;
+          descriptionList.appendChild(listItem);
+        });
+
+        experienceItem.appendChild(role);
+        experienceItem.appendChild(company);
+        experienceItem.appendChild(date);
+        experienceItem.appendChild(descriptionList);
+
+        return experienceItem;
+      }
+
+      // Call the functions when the window loads to populate the sections
+      window.onload = function () {
+        fetchDataAndRender(
+          "data/experience.json",
+          "experience-container",
+          renderExperienceItem
+        );
+        fetchDataAndRender(
+          "data/languages.json",
+          "programming-languages-container",
+          renderSkillCard
+        );
+        fetchDataAndRender(
+          "data/skills.json",
+          "skill-cards-container",
+          renderSkillCard
+        );
+        fetchDataAndRender(
+          "data/projects.json",
+          "projects-container",
+          renderProjectCard
+        );
+        fetchDataAndRender(
+          "data/certificates.json",
+          "certificates-container",
+          renderCertificateCard
+        );
+      };
+    </script>
+  </body>
+</html>
